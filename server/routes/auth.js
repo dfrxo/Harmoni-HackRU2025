@@ -1,27 +1,28 @@
-// server/routes/auth.js
 const express = require('express');
 const passport = require('passport');
 const router = express.Router();
 
-// Initiate Spotify OAuth authentication
+// Route to initiate Spotify OAuth authentication
 router.get('/spotify', passport.authenticate('spotify', {
-  scope: ['user-read-email', 'user-read-private'],
-  showDialog: true  // forces approval prompt
+    scope: ['user-read-email', 'user-read-private'],
+    showDialog: true  // Forces login approval every time
 }));
 
-// Handle the callback from Spotify
+// Spotify OAuth callback route
 router.get('/spotify/callback',
-  passport.authenticate('spotify', { failureRedirect: '/login' }),
-  (req, res) => {
-    // On successful authentication, redirect as needed (e.g., to your dashboard)
-    res.redirect('/');
-  }
+    passport.authenticate('spotify', { failureRedirect: '/login' }),
+    (req, res) => {
+        // Redirect user to dashboard or home after login
+        res.redirect('/');
+    }
 );
 
-// Logout route to end session
+// Logout route
 router.get('/logout', (req, res) => {
-  req.logout();
-  res.redirect('/');
+    req.logout(err => {
+        if (err) return next(err);
+        res.redirect('/');
+    });
 });
 
 module.exports = router;
