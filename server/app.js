@@ -9,13 +9,19 @@ const passport = require('passport');
 const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/user');
 const matchRoutes = require('./routes/match');
+//const spotifyRoutes = require('./routes/spotify');
+
 
 // Initialize Express app
 const app = express();
 
+const schema = mongoose.model('User').schema;
+console.log(schema);
+
 // Middleware: Body parsing & URL encoding
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
 
 // Session setup for Passport.js (adjust options as needed)
 app.use(session({
@@ -43,6 +49,9 @@ mongoose.connect(process.env.MONGODB_URI, {
 app.use('/auth', authRoutes);
 app.use('/user', userRoutes);
 app.use('/match', matchRoutes);
+//app.use('/spotify', spotifyRoutes);
+
+
 
 // Basic test route
 app.get('/', (req, res) => res.send('Welcome to Harmoni backend'));
