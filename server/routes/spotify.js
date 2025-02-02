@@ -30,4 +30,15 @@ router.get("/callback", async (req, res) => {
     res.json(user);
 });
 
+// ✅ Add `/spotify/user` endpoint to retrieve stored user data
+router.get("/user", async (req, res) => {
+    try {
+        const users = await SpotifyUser.find(); // Retrieve all users
+        res.json(users);
+    } catch (error) {
+        console.error("❌ Error fetching user data:", error);
+        res.status(500).json({ message: "Server error" });
+    }
+});
+
 module.exports = router;
