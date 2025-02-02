@@ -7,7 +7,7 @@ const Home = () => {
     const navigate = useNavigate();
 
     const handleSpotifySignup = () => {
-        window.location.href = "http://localhost:4000/auth/spotify"; // Redirect to Spotify OAuth
+        window.location.href = "http://localhost:8333/auth/spotify"; // Redirect to Spotify OAuth
     };
 
     const handleEmailSignup = () => {
