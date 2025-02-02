@@ -11,6 +11,14 @@ const userRoutes = require('./routes/user');
 const matchRoutes = require('./routes/match');
 //const spotifyRoutes = require('./routes/spotify');
 
+const cors = require('cors');
+
+app.use(cors({
+  origin: process.env.FRONTEND_URL || 'https://harmoni-hackru2025.netlify.app', // Replace with your Netlify domain
+  credentials: true
+}));
+
+
 
 // Initialize Express app
 const app = express();
