@@ -41,7 +41,8 @@ mongoose.connect(process.env.MONGODB_URI, {
 
 // Define routes
 app.use('/auth', authRoutes);
-app.use('/user', userRoutes);
+app.use('/routes/user', userRoutes);
+console.log('User routes mounted at /routes/user');
 app.use('/match', matchRoutes);
 
 // Basic test route
