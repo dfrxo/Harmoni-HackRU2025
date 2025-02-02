@@ -9,7 +9,7 @@
     "passport-spotify": "^2.0.0"
   },
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   }
 }

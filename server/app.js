@@ -1,6 +1,8 @@
 // server/app.js
 require('dotenv').config();
-const express = require('express');
+const express = require("express");
+const app = express();
+const PORT = process.env.PORT || 4000;
 const mongoose = require('mongoose');
 const session = require('express-session');
 const passport = require('passport');
@@ -21,7 +23,6 @@ app.use(cors({
 
 
 // Initialize Express app
-const app = express();
 
 const schema = mongoose.model('User').schema;
 console.log(schema);
@@ -71,5 +72,12 @@ app.use((err, req, res, next) => {
 });
 
 // Start server
-const PORT = process.env.PORT || 8333;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+app.get("/", (req, res) => {
+  res.send("Backend is running!");
+});
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
