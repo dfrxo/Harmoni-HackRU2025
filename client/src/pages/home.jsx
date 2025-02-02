@@ -7,7 +7,7 @@ const Home = () => {
 
     return (
         <div className={`home ${showAuthOptions ? "expanded-home" : ""}`}>
-            <h1 className="home-title">Welcome to Harmony</h1>
+            <h1 className="home-title">Welcome to Harmoni</h1>
             <p className="home-text">The best dating app for music lovers</p>
 
             {/* Smaller Get Started Button */}
