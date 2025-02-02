@@ -200,9 +200,10 @@ body {
     color: #FF69B4;
 }
 
+
 /* Spotify Button */
 .spotify-button {
-    width: 100%;
+    width: 90%;
     padding: 14px;
     font-size: 18px;
     font-weight: bold;
@@ -220,3 +221,21 @@ body {
     background: #1aa34a;
 }
 
+/* Sign Up with Email - Match Spotify Button */
+.email-button {
+    width: 90%;
+    padding: 14px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 50px;
+    border: none;
+    background: #FF69B4; /* Spotify Green */
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-top: 15px;
+}
+
+.email-button:hover {
+    transform: scale(1.05); /* Slightly Increase Size */
+}
