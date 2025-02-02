@@ -1,3 +1,6 @@
+require("dotenv").config();
+console.log("🔍 DEBUG: MONGO_URI =", process.env.MONGO_URI);
+
 // server/app.js
 require('dotenv').config();
 const express = require('express');
@@ -35,9 +38,10 @@ app.use(passport.session());
 require('./utils/spotifyPassport');
 
 // MongoDB connection using Mongoose
-mongoose.connect(process.env.MONGODB_URI)
+mongoose.connect(process.env.MONGO_URI) // 
   .then(() => console.log('✅ MongoDB connected'))
   .catch(err => console.error('❌ MongoDB connection error:', err));
+
 
 // Define routes
 app.use('/auth', authRoutes);
