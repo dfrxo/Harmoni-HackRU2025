@@ -15,19 +15,11 @@ const Login = () => {
         e.preventDefault();
 
         try {
-            const response = await fetch(`${config.BACKEND_URL}/api/login`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(credentials),
-            });
-
-            if (response.ok) {
-                navigate("/dashboard"); // Redirect after successful login
-            } else {
-                console.error("Login failed");
-            }
+            // 🚨 For now, skipping backend - just redirecting to dashboard
+            console.log("✅ Redirecting to Dashboard...");
+            navigate("/dashboard");
         } catch (error) {
-            console.error("Login error:", error);
+            console.error("❌ Login error:", error);
         }
     };
 

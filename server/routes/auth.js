@@ -13,7 +13,7 @@ router.get('/spotify/callback',
     passport.authenticate('spotify', { failureRedirect: '/login' }),
     (req, res) => {
         // Redirect user to dashboard or home after login
-        res.redirect('/');
+        res.redirect('http://localhost:3000/profile-completion');
     }
 );
 
