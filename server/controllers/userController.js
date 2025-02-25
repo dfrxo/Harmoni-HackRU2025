@@ -19,3 +19,22 @@ exports.getUserProfile = async (req, res) => {
   }
 };
 
+// Controller to update user's Spotify data
+exports.updateSpotifyData = async (req, res) => {
+    if (!req.user) {
+        return res.status(401).json({ error: "Not authenticated" });
+    }
+
+    const { topArtists, topTracks } = req.body;
+    try {
+        // Update the user's listening data fields if provided
+        if (topArtists) req.user.topArtistsNames = topArtists;
+        if (topTracks) req.user.topTracksNames = topTracks;
+
+        await req.user.save();
+        res.json({ message: "Spotify data updated successfully", user: req.user });
+    } catch (error) {
+        console.error("Error updating Spotify data:", error);
+        res.status(500).json({ error: "Server error" });
+    }
+};
